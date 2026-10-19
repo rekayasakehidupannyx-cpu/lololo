@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil UMKM & Panel Admin - Keripik Singkong Maknyus Singosari</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-amber-50/30 antialiased selection:bg-amber-100 selection:text-amber-900">
+
+    <!-- Header / Navigasi -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Teks Nama Usaha -->
+                <div class="flex items-center space-x-3">
+                    <img id="store-logo-display" src="https://placehold.co/100x100/7A3E1D/ffffff?text=Logo" alt="Logo Toko" class="w-10 h-10 rounded-full object-cover border border-amber-200 shadow-sm">
+                    <div>
+                        <span id="store-name-display" class="text-xl font-bold tracking-tight text-amber-950 block">Keripik Singkong Maknyus</span>
+                        <span id="store-location-display" class="text-xs text-amber-700 font-medium">Singosari, Malang</span>
+                    </div>
+                </div>
+
+                <!-- Menu Navigasi Desktop + Tombol Admin -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#beranda" class="text-amber-900 hover:text-amber-600 transition">Beranda</a>
+                    <a href="#tentang" class="text-gray-600 hover:text-amber-600 transition">Tentang</a>
+                    <a href="#produk" class="text-gray-600 hover:text-amber-600 transition">Produk</a>
+                    <a href="#kontak" class="text-gray-600 hover:text-amber-600 transition">Kontak</a>
+                    <button id="open-admin-btn" class="inline-flex items-center space-x-2 bg-amber-900 hover:bg-amber-950 text-white text-xs px-3.5 py-2 rounded-xl font-medium transition shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        <span>Panel Admin</span>
+                    </button>
+                </nav>
+
+                <!-- Tombol Menu Mobile / Hamburger -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="open-admin-btn-mobile" class="p-2 bg-amber-100 text-amber-900 rounded-lg text-xs font-semibold">
+                        Admin
+                    </button>
+                    <button id="menu-btn" aria-label="Buka Menu" class="p-2 rounded-lg text-gray-700 hover:bg-amber-50 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-2">
+            <a href="#beranda" class="block px-3 py-2 rounded-md text-base font-medium text-amber-950 hover:bg-amber-50">Beranda</a>
+            <a href="#tentang" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-amber-50">Tentang</a>
+            <a href="#produk" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-amber-50">Produk</a>
+            <a href="#kontak" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-amber-50">Kontak</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="beranda" class="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 bg-gradient-to-b from-amber-100/60 via-amber-50/30 to-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 text-center lg:text-left">
+                        <span id="hero-badge-display" class="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-amber-100 text-amber-900 border border-amber-200">
+                            Keripik rumahan khas Singosari
+                        </span>
+                        
+                        <h1 id="hero-title-display" class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                            Keripik Singkong Maknyus Singosari
+                        </h1>
+                        
+                        <p id="hero-subtext-display" class="text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+                            Renyahnya Bikin Nagih, Gurihnya Pas di Hati!
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                            <a id="hero-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-6 py-3.5 border border-transparent text-base font-semibold rounded-xl text-white bg-amber-800 hover:bg-amber-900 shadow-lg shadow-amber-900/20 transition transform hover:-translate-y-0.5">
+                                Pesan via WhatsApp
+                            </a>
+                            <a href="#produk" class="inline-flex justify-center items-center px-6 py-3.5 border border-amber-200 text-base font-semibold rounded-xl text-amber-900 bg-white hover:bg-amber-50 shadow-sm transition">
+                                Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="relative flex justify-center">
+                        <div class="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-4 ring-amber-100">
+                            <img id="hero-display-img" src="foto utama.jpeg" onerror="this.src='https://placehold.co/600x400/7A3E1D/ffffff?text=Kedai+Mamatung'" alt="Foto utama Kedai Mamatung" class="w-full h-80 sm:h-96 object-cover transform hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Fakta Singkat -->
+                <div class="mt-16 flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold text-amber-950">Fakta Utama Usaha</h3>
+                </div>
+                <div id="fakta-singkat-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Dirender via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Tentang Usaha Kami</h2>
+                    <p class="mt-4 text-lg text-gray-600">Mengenal lebih dekat sejarah dan keunggulan produk kami.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl font-bold text-amber-950">Cerita Singkat Usaha</h3>
+                        </div>
+                        <p id="cerita-usaha-display" class="text-gray-600 leading-relaxed text-base">
+                            Keripik Singkong Maknyus dibuat dari singkong pilihan hasil tani lokal Singosari dengan resep turun-temurun. Kami mengutamakan kebersihan dan rasa gurih alami di setiap gigitannya untuk kepuasan pelanggan setia.
+                        </p>
+                        <div class="bg-amber-50/80 p-6 rounded-2xl border border-amber-200/60 grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <span id="stat-tahun-display" class="block text-2xl font-extrabold text-amber-900">2018</span>
+                                <span class="text-xs text-amber-800 font-medium">Tahun Berdiri</span>
+                            </div>
+                            <div>
+                                <span id="stat-pemilik-display" class="block text-2xl font-extrabold text-amber-900">Ibu Siti</span>
+                                <span class="text-xs text-amber-800 font-medium">Pemilik</span>
+                            </div>
+                            <div>
+                                <span id="stat-karyawan-display" class="block text-2xl font-extrabold text-amber-900">5 Orang</span>
+                                <span class="text-xs text-amber-800 font-medium">Karyawan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl font-bold text-amber-950">Keunggulan Kami</h3>
+                        </div>
+                        <div id="keunggulan-list-display" class="space-y-4">
+                            <!-- Renderean dari JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="produk" class="py-16 md:py-24 bg-amber-50/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Produk Pilihan Kami</h2>
+                    <p class="mt-4 text-lg text-gray-600">Pilih varian rasa keripik kesukaan Anda.</p>
+                    <div class="mt-4 inline-block bg-amber-100/80 border border-amber-300 text-amber-950 px-4 py-2 rounded-xl text-sm font-medium shadow-sm">
+                        Layanan antar gratis untuk wilayah Singosari dengan minimal pembelian 3 bungkus.
+                    </div>
+                </div>
+
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Ditampilkan secara dinamis melalui JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="py-16 md:py-24 bg-white border-t border-amber-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kontak dan Lokasi</h2>
+                    <p class="mt-4 text-lg text-gray-600">Kunjungi tempat produksi kami atau hubungi melalui WhatsApp.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="space-y-8 bg-white p-8 rounded-3xl border border-amber-200/60 shadow-sm">
+                        <div>
+                            <h3 class="text-xl font-bold text-amber-950 mb-2">Informasi Usaha</h3>
+                            <p class="text-gray-700">Alamat: <span id="display-alamat" class="font-medium">Jl. Raya Singosari No. 45, Malang, Jawa Timur</span></p>
+                            <p class="text-gray-700 mt-1">WhatsApp: <span id="display-wa" class="font-semibold text-amber-900">0812-3456-7890</span></p>
+                            <p class="text-gray-700 mt-1">Media Sosial: <span id="display-medsos" class="font-medium">@keripiksingkongsingosari</span></p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-amber-950 mb-3">Jam Buka</h4>
+                            <div class="bg-amber-50/50 rounded-xl overflow-hidden border border-amber-200/60 text-sm shadow-sm">
+                                <div class="flex justify-between px-4 py-3 border-b border-gray-200/60">
+                                    <span class="text-gray-600">Senin - Sabtu</span>
+                                    <span id="display-jambuka-senin" class="font-semibold text-gray-900">08.00 - 17.00 WIB</span>
+                                </div>
+                                <div class="flex justify-between px-4 py-3 bg-amber-50/80">
+                                    <span class="text-gray-600">Minggu</span>
+                                    <span id="display-jambuka-minggu" class="font-semibold text-rose-600">Tutup</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a id="contact-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex justify-center items-center px-6 py-3.5 bg-amber-800 hover:bg-amber-900 text-white font-semibold rounded-xl shadow-md transition">
+                                Chat WhatsApp Sekarang
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-amber-950 mb-4">Peta Lokasi</h3>
+                            <div class="w-full h-80 rounded-2xl overflow-hidden shadow-inner border border-gray-200 bg-gray-100 flex items-center justify-center">
+                                <iframe id="display-maps-iframe" class="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.548074987216!2d112.6578!3d-7.8856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTMnMguMiJTIDExMsKwMzknMjguMSJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                        <div>
+                            <a id="display-maps-link" href="https://maps.google.com/?q=Singosari+Malang" target="_blank" rel="noopener noreferrer" class="w-full inline-flex justify-center items-center px-6 py-3.5 border border-amber-200 bg-white hover:bg-amber-50 text-amber-900 font-semibold rounded-xl shadow-sm transition">
+                                Buka di Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="admin-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-amber-100 p-6 sm:p-8">
+            <div class="flex justify-between items-center border-b border-gray-100 pb-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-amber-950">Panel Unggah & Edit Admin UMKM</h3>
+                    <p class="text-xs text-gray-500">Kelola header beranda, produk, cerita usaha, fakta, keunggulan, kontak, logo, dan kata sandi.</p>
+                </div>
+                <button id="close-admin-btn" class="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- PIN Auth Section -->
+            <div id="admin-auth-box" class="space-y-4 py-4">
+                <p class="text-sm text-gray-600">Masukkan Kata Sandi / PIN Admin untuk mengakses panel (Default PIN: 1234):</p>
+                <div class="flex space-x-2">
+                    <input type="password" id="admin-pin-input" placeholder="Masukkan PIN" class="flex-1 px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-amber-600 focus:outline-none text-sm">
+                    <button id="admin-login-btn" class="bg-amber-800 hover:bg-amber-900 text-white px-5 py-2.5 rounded-xl font-semibold text-sm">Masuk</button>
+                </div>
+                <p id="pin-error-msg" class="text-xs text-rose-600 hidden">PIN Salah! Silakan coba lagi.</p>
+            </div>
+
+            <!-- Admin Upload Content Area -->
+            <div id="admin-content-box" class="hidden space-y-6">
+                <!-- Tab Menu Unggah -->
+                <div class="flex border-b border-gray-200 text-sm font-medium overflow-x-auto pb-1 gap-2">
+                    <button id="tab-hero-text-btn" class="py-2 px-3 border-b-2 border-amber-800 text-amber-900 font-bold whitespace-nowrap text-xs sm:text-sm">Header Beranda</button>
+                    <button id="tab-produk-btn" class="py-2 px-3 text-gray-500 hover:text-amber-800 whitespace-nowrap text-xs sm:text-sm">Produk</button>
+                    <button id="tab-cerita-btn" class="py-2 px-3 text-gray-500 hover:text-amber-800 whitespace-nowrap text-xs sm:text-sm">Cerita Usaha</button>
+                    <button id="tab-fakta-btn" class="py-2 px-3 text-gray-500 hover:text-amber-800 whitespace-nowrap text-xs sm:text-sm">3 Poin Fakta</button>
+                    <button id="tab-keunggulan-btn" class="py-2 px-3 text-gray-500 hover:text-amber-800 whitespace-nowrap text-xs sm:text-sm">Keunggulan</button>
+                    <button id="tab-kontak-btn" class="py-2 px-3 text-gray-500 hover:text-amber-800 whitespace-nowrap text-xs sm:text-sm">Kontak & Lokasi</button>
+                    <button id="tab-hero-btn" class="py-2 px-3 text-gray-500 hover:text-amber-800 whitespace-nowrap text-xs sm:text-sm">Foto Utama</button>
+                    <button id="tab-toko-btn" class="py-2 px-3 text-gray-500 hover:text-amber-800 whitespace-nowrap text-xs sm:text-sm">Logo</button>
+                    <button id="tab-password-btn" class="py-2 px-3 text-gray-500 hover:text-amber-800 whitespace-nowrap text-xs sm:text-sm">Ubah Password</button>
+                </div>
+
+                <!-- Form Edit Text Header & Hero -->
+                <form id="edit-hero-text-form" class="space-y-4">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Edit Teks Navigasi & Beranda Utama</h4>
+                        <p class="text-xs text-gray-500 mb-4">Ubah nama usaha, lokasi, label badge, judul utama, dan slogan di bagian atas web.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Usaha (Header Navigasi)</label>
+                            <input type="text" id="admin-store-name" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Lokasi Singkat Usaha</label>
+                            <input type="text" id="admin-store-location" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Label Badge (Teks Kecil di Atas Judul)</label>
+                        <input type="text" id="admin-hero-badge" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Judul Utama Beranda (H1)</label>
+                        <input type="text" id="admin-hero-title" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Subjudul / Slogan Usaha</label>
+                        <textarea id="admin-hero-subtext" rows="2" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                        Simpan Perubahan Header & Beranda
+                    </button>
+                </form>
+
+                <!-- Bagian Kelola Varian Produk -->
+                <div id="produk-manager-wrapper" class="space-y-4 hidden">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Kelola Varian Produk</h4>
+                        <p class="text-xs text-gray-500 mt-0.5">Pilih produk di bawah untuk memperbarui foto, nama, berat, harga, atau deskripsinya.</p>
+                    </div>
+
+                    <div id="admin-product-list" class="space-y-3">
+                        <!-- Kartu-kartu produk dirender secara dinamis -->
+                    </div>
+
+                    <button type="button" id="open-add-new-prod-btn" class="w-full py-2.5 border-2 border-dashed border-amber-300 text-amber-900 hover:bg-amber-50 rounded-2xl font-bold text-xs transition flex items-center justify-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        <span>+ Tambah Produk Baru</span>
+                    </button>
+                </div>
+
+                <!-- Form Edit Cerita Usaha -->
+                <form id="edit-cerita-form" class="space-y-4 hidden">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Edit Cerita Singkat Usaha</h4>
+                        <p class="text-xs text-gray-500 mb-4">Perbarui narasi sejarah dan statistik singkat usaha Anda.</p>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Paragraf Cerita Singkat</label>
+                        <textarea id="admin-cerita-teks" rows="4" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none"></textarea>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Tahun Berdiri</label>
+                            <input type="text" id="admin-stat-tahun" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Pemilik</label>
+                            <input type="text" id="admin-stat-pemilik" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Jumlah Karyawan</label>
+                            <input type="text" id="admin-stat-karyawan" class="w-full px-3 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                        Simpan Cerita Usaha
+                    </button>
+                </form>
+
+                <!-- Form Edit 3 Poin Fakta Utama -->
+                <form id="edit-fakta-form" class="space-y-4 hidden">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Edit 3 Poin Fakta Utama</h4>
+                        <p class="text-xs text-gray-500 mb-4">Ubah judul dan deskripsi dari 3 poin keunggulan cepat di bagian atas.</p>
+                    </div>
+                    <div id="admin-fakta-inputs" class="space-y-4">
+                        <!-- Diisi via JS -->
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                        Simpan 3 Poin Fakta
+                    </button>
+                </form>
+
+                <!-- Form Edit Informasi Usaha, Kontak & Jam Buka -->
+                <form id="edit-kontak-form" class="space-y-4 hidden">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Edit Informasi Usaha & Kontak</h4>
+                        <p class="text-xs text-gray-500 mb-4">Ubah alamat, nomor WhatsApp, akun media sosial, jam buka, dan tautan lokasi Google Maps.</p>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Alamat Lengkap Usaha</label>
+                        <input type="text" id="admin-alamat" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nomor WhatsApp (Contoh: 081234567890)</label>
+                            <input type="text" id="admin-wa" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Media Sosial (Instagram/Tiktok)</label>
+                            <input type="text" id="admin-medsos" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Jam Buka (Senin - Sabtu)</label>
+                            <input type="text" id="admin-jambuka-senin" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Jam Buka (Minggu)</label>
+                            <input type="text" id="admin-jambuka-minggu" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">URL Google Maps</label>
+                        <input type="url" id="admin-maps-url" placeholder="https://maps.google.com/..." class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                        Simpan Informasi Kontak & Buka Usaha
+                    </button>
+                </form>
+
+                <!-- Form Unggah / Edit Produk -->
+                <form id="upload-product-form" class="space-y-4 hidden border-t border-amber-100 pt-4">
+                    <input type="hidden" id="prod-edit-id" value="">
+                    
+                    <div id="edit-indicator" class="p-3 bg-amber-100/80 border border-amber-300 rounded-2xl flex justify-between items-center text-xs text-amber-950">
+                        <span>Sedang mengedit produk: <strong id="edit-prod-title"></strong></span>
+                        <button type="button" id="cancel-edit-btn" class="underline font-bold text-rose-700 hover:text-rose-900">Batal Edit</button>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Produk Makanan</label>
+                        <input type="text" id="prod-name" placeholder="Contoh: Keripik Singkong Pedas Manis" required class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Berat / Isi</label>
+                            <input type="text" id="prod-weight" placeholder="Contoh: 250 gram" required class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Harga</label>
+                            <input type="text" id="prod-price" placeholder="Contoh: Rp 15.000" required class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Deskripsi Singkat Produk</label>
+                        <textarea id="prod-desc" rows="2" placeholder="Jelaskan rasa dan keunggulan produk..." required class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none"></textarea>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-gray-700 uppercase">Pilih Foto Produk Baru (Opsional Saat Edit)</label>
+                        <input type="file" id="prod-file-input" accept="image/*" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200">
+                        <span class="block text-xs text-center text-gray-400">--- ATAU PASTE LINK GAMBAR ---</span>
+                        <input type="url" id="prod-url-input" placeholder="https://..." class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+
+                    <div id="prod-preview-box" class="hidden p-2 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="text-xs text-gray-500 mb-1">Pratinjau Foto Produk:</p>
+                        <img id="prod-img-preview" src="" class="h-28 object-cover rounded-lg">
+                    </div>
+
+                    <div class="flex space-x-2 pt-2">
+                        <button type="submit" id="submit-prod-btn" class="flex-1 py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                            Simpan Perubahan Produk
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Form Ganti Foto Utama Beranda -->
+                <form id="upload-hero-form" class="space-y-4 hidden">
+                    <p class="text-xs text-gray-600">Ganti foto sampul utama yang berada di bagian atas beranda depan web.</p>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-gray-700 uppercase">Pilih Berkas Foto Utama Baru</label>
+                        <input type="file" id="hero-file-input" accept="image/*" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200">
+                        <span class="block text-xs text-center text-gray-400">--- ATAU PASTE LINK GAMBAR ---</span>
+                        <input type="url" id="hero-url-input" placeholder="https://..." class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                        Perbarui Foto Utama
+                    </button>
+                </form>
+
+                <!-- Bagian Kelola Keunggulan Kami -->
+                <div id="keunggulan-manager-wrapper" class="space-y-4 hidden">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Kelola Keunggulan Usaha</h4>
+                        <p class="text-xs text-gray-500 mt-0.5">Ubah judul dan keterangan dari poin-poin keunggulan produk Anda.</p>
+                    </div>
+
+                    <div id="admin-keunggulan-list" class="space-y-4">
+                        <!-- Daftar poin keunggulan dirender secara dinamis -->
+                    </div>
+
+                    <button type="button" id="save-all-keunggulan-btn" class="w-full py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                        Simpan Perubahan Keunggulan
+                    </button>
+                </div>
+
+                <!-- Form Edit Logo Toko -->
+                <form id="edit-logo-form" class="space-y-4 hidden">
+                    <p class="text-xs text-gray-600">Unggah berkas foto logo baru untuk mengubah logo toko di bagian header navigasi atas website.</p>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-gray-700 uppercase">Pilih Berkas Logo Baru</label>
+                        <input type="file" id="logo-file-input" accept="image/*" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200">
+                        <span class="block text-xs text-center text-gray-400">--- ATAU PASTE LINK GAMBAR LOGO ---</span>
+                        <input type="url" id="logo-url-input" placeholder="https://..." class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+
+                    <div id="logo-preview-box" class="hidden p-2 bg-gray-50 rounded-xl border border-gray-200 flex items-center space-x-3">
+                        <p class="text-xs text-gray-500">Pratinjau Logo:</p>
+                        <img id="logo-img-preview" src="" class="w-12 h-12 object-cover rounded-full border border-gray-300">
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                        Simpan Perubahan Logo Toko
+                    </button>
+                </form>
+
+                <!-- Form Ubah Password Admin (Menu Owner) -->
+                <form id="edit-password-form" class="space-y-4 hidden">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">Ubah Password / PIN Admin</h4>
+                        <p class="text-xs text-gray-500 mb-4">Ganti kata sandi atau PIN akses panel admin untuk keamanan usaha Anda.</p>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">PIN Lama</label>
+                        <input type="password" id="admin-old-pin" placeholder="Masukkan PIN lama" required class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">PIN Baru</label>
+                            <input type="password" id="admin-new-pin" placeholder="Masukkan PIN baru" required class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Konfirmasi PIN Baru</label>
+                            <input type="password" id="admin-confirm-pin" placeholder="Ulangi PIN baru" required class="w-full px-3.5 py-2 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-amber-800 hover:bg-amber-900 text-white rounded-xl font-bold text-sm shadow-md transition">
+                        Simpan Password Baru
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="custom-toast" class="fixed top-6 right-6 z-50 transform translate-x-full opacity-0 transition-all duration-300 max-w-sm bg-amber-950 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center space-x-3 border border-amber-800">
+        <svg class="w-6 h-6 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span id="toast-msg" class="text-sm font-medium">Berhasil menyimpan perubahan!</span>
+    </div>
+
+    <div id="custom-confirm-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 text-center space-y-4 shadow-2xl border border-amber-100">
+            <h3 id="confirm-title" class="text-xl font-bold text-amber-950">Konfirmasi Tindakan</h3>
+            <p id="confirm-text" class="text-sm text-gray-600">Apakah Anda yakin ingin melanjutkan tindakan ini?</p>
+            <div class="flex space-x-3 pt-2">
+                <button id="confirm-cancel-btn" class="flex-1 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-semibold text-sm hover:bg-gray-50 transition">Batal</button>
+                <button id="confirm-yes-btn" class="flex-1 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-semibold text-sm transition shadow-md">Ya, Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-stone-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="text-sm text-stone-400">
+                © 2026 Keripik Singkong Maknyus · Website dibuat oleh Kelompok 1 SMK PGRI Singosari.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Tombol WhatsApp Melayang -->
+    <a id="floating-wa-btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp" class="fixed bottom-6 right-6 z-40 bg-amber-800 hover:bg-amber-900 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition transform hover:scale-110">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+
+    <script src="app.js"></script>
+</body>
+</html>

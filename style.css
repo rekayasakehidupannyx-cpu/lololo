@@ -1,0 +1,16 @@
+:root {
+    --warna-utama: #7A3E1D;
+    --warna-aksen: #D48806;
+    --warna-harga: #C0392B;
+    --warna-latar: #FAF6F0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--warna-latar);
+    color: #2D3748;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
